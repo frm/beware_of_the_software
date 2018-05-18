@@ -1,0 +1,4 @@
+%{
+  "msgpax": {:hex, :msgpax, "2.1.1", "833bc9ce6d3e073cf966fec94d3f976ca7100685b4f0efb6e30ef512f2e8a4d7", [:mix], [{:plug, "~> 1.0", [hex: :plug, repo: "hexpm", optional: true]}], "hexpm"},
+  "uuid": {:hex, :uuid, "1.1.8", "e22fc04499de0de3ed1116b770c7737779f226ceefa0badb3592e64d5cfb4eb9", [:mix], [], "hexpm"},
+}

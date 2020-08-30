@@ -1,0 +1,4 @@
+%{
+  "msgpax": {:hex, :msgpax, "2.2.4", "7b3790ef684089076b63c0f08c2f4b079c6311daeb006b69e4ed2bf67518291e", [:mix], [{:plug, "~> 1.0", [hex: :plug, repo: "hexpm", optional: true]}], "hexpm", "b351b6d992d79624a8430a99d21a41b36b1b90edf84326a294e9f4a2de11f089"},
+  "uuid": {:hex, :uuid, "1.1.8", "e22fc04499de0de3ed1116b770c7737779f226ceefa0badb3592e64d5cfb4eb9", [:mix], [], "hexpm", "c790593b4c3b601f5dc2378baae7efaf5b3d73c4c6456ba85759905be792f2ac"},
+}

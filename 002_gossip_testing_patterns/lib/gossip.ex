@@ -8,12 +8,17 @@ defmodule Gossip do
   def start_link(args \\ []) do
     port = Keyword.get(args, :port, @default_port)
     callback = Keyword.fetch!(args, :callback)
+    {:ok, server} = start_server(port)
+    {:ok, messenger} = Messenger.start_link()
 
-    GenServer.start_link(__MODULE__, [port: port, callback: callback], [])
-  end
+    args = [
+      port: port,
+      server: server,
+      messenger: messenger,
+      callback: callback
+    ]
 
-  def connect_to(pid, host, port) when is_binary(host) do
-    connect_to(pid, String.to_charlist(host), port)
+    GenServer.start_link(__MODULE__, args, [])
   end
 
   def connect_to(pid, host, port) do
@@ -32,16 +37,13 @@ defmodule Gossip do
     GenServer.cast(pid, {:recv, msg})
   end
 
-  def init(port: port, callback: callback) do
-    {:ok, server} = start_server(port)
-    {:ok, messenger} = Messenger.start_link()
-
+  def init(args) do
     state = %{
-      port: port,
-      server: server,
-      messenger: messenger,
-      neighbours: [],
-      callback: callback
+      port: args[:port],
+      server: args[:server],
+      messenger: args[:messenger],
+      callback: args[:callback],
+      neighbours: []
     }
 
     {:ok, state}

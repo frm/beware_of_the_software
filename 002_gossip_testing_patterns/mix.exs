@@ -22,7 +22,8 @@ defmodule Gossip.MixProject do
   defp deps do
     [
       {:uuid, "~> 1.1"},
-      {:msgpax, "~> 2.2"}
+      {:msgpax, "~> 2.2"},
+      {:mock, "~> 0.3.0", only: :test}
     ]
   end
 end

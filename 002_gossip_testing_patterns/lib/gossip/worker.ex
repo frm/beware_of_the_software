@@ -1,6 +1,5 @@
 defmodule Gossip.Worker do
   use Task
-  @shrug "¯\\_(ツ)_/¯\n"
 
   def start(args) do
     Task.start(__MODULE__, :recv_loop, args)
